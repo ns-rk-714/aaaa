@@ -1,0 +1,18 @@
+public enum direction
+{
+	left = 1,
+	right = -1,
+}
+
+[SerializeField] private direction conveyorDirection;
+
+[SerializeField] private float speed;
+
+private void OnCollisionStay(Collison collision)
+{
+	if (collison.gameObject.CompareTag("Player"))
+	{
+		collision.transform.position +=
+		Vector3.left * conveyorDirection * speed * Time.deltaTime;
+	}
+}
